@@ -1,0 +1,44 @@
+Arguments: 
+  /usr/bin/nodejs /usr/bin/yarn install
+
+PATH: 
+  /home/vagrant/.composer/vendor/bin:/home/vagrant/bin:/home/vagrant/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  0.21.3
+
+Node version: 
+  6.9.5
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "dev": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch-poll": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --watch-poll --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "hot": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "production": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+      "axios": "^0.15.3",
+      "bootstrap-sass": "^3.3.7",
+      "jquery": "^3.1.1",
+      "laravel-mix": "^0.8.1",
+      "lodash": "^4.17.4",
+      "vue": "^2.1.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EPROTO: protocol error, symlink '../../../browserslist/cli.js' -> '/home/vagrant/Code/Web/music-player/node_modules/autoprefixer/node_modules/.bin/browserslist'
+      at Error (native)
