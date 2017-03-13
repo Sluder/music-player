@@ -1,9 +1,33 @@
 
-// Fonts
+// ---------- Imports ----------
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-// Variables
 @import "variables";
 
-// Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+// ---------- Styles ----------
+html, body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: $dark-grey;
+}
+
+.navbar-fixed-top {
+  background-color: $accent;
+  height: 55px;
+  -webkit-box-shadow: -1px 10px 18px 5px rgba(0,0,0,0.74);
+  -moz-box-shadow: -1px 10px 18px 5px rgba(0,0,0,0.74);
+  box-shadow: -1px 10px 18px 5px rgba(0,0,0,0.74);
+}
+
+.music-list {
+  ul {
+    padding: 0;
+  }
+
+  .song-item {
+    background-color: $accent;
+  }
+}
