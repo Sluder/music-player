@@ -5,6 +5,7 @@
 @import "variables";
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 
 // ---------- Styles ----------
@@ -17,17 +18,170 @@ html, body {
 .navbar-fixed-top {
   background-color: $accent;
   height: 55px;
-  -webkit-box-shadow: -1px 10px 18px 5px rgba(0,0,0,0.74);
-  -moz-box-shadow: -1px 10px 18px 5px rgba(0,0,0,0.74);
-  box-shadow: -1px 10px 18px 5px rgba(0,0,0,0.74);
+
+  .navbar-header {
+    h3 {
+      margin-top: 16px;
+      color: white;
+    }
+  }
+
+  .play-btn, .pause-btn {
+    border: 4px solid white;
+    border-radius: 30px;
+    padding-left: 13px;
+    padding-right: 11px;
+    background: none;
+    color: white;
+    font-size: 20px;
+
+    &:hover {
+      font-size: 21px;
+      padding-left: 14px;
+      padding-right: 12px;
+    }
+  }
+
+  .pause-btn {
+    padding-left: 12px;
+
+    &:hover {
+      font-size: 21px;
+      padding-left: 13px;
+      padding-right: 12px;
+    }
+  }
+
+  .next-btn, .prev-btn {
+    background: none;
+    color: white;
+    font-size: 30px;
+
+    &:hover {
+      font-size: 31px;
+      margin-top: -1px;
+    }
+  }
+
+  .upload-btn {
+    background: none;
+    color: white;
+    font-size: 25px;
+    margin-top: 3px;
+    float: right;
+    padding-right: 0;
+  }
+}
+
+.content {
+  margin-top: 80px;
+  margin-bottom: 40px;
 }
 
 .music-list {
   ul {
     padding: 0;
+
+    .list-group-item {
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+
+      .empty {
+        color: white;
+        background-color: #3a3939;
+        text-align: center;
+        padding: 10px;
+      }
+    }
+  }
+
+  .song-title {
+    color: $light-grey;
+    padding-left: 26px;
+  }
+
+  .song-length {
+    color: $light-grey;
+    margin-left: -6px;
+  }
+
+  .song-date {
+    color: $light-grey;
+    float: right;
+    padding-right: 37px;
   }
 
   .song-item {
-    background-color: $accent;
+    color: white;
+    background-color: black;
+    padding: 10px 17px 0;
+    cursor: pointer;
+
+    .title {
+      margin: 0;
+      padding-left: 10px;
+    }
+    
+    .date-added {
+      float: right;
+      padding-right: 10px;
+    }
+  }
+
+  .playing {
+    background-color: $accent !important;
+  }
+}
+
+.upload-song-modal {
+  .modal-content {
+    padding: 15px;
+    background-color: #3a3939;
+    
+    .modal-title {
+      font-size: 20px;
+      color: $accent;
+    }
+
+    form {
+      margin-top: 15px;
+
+      label {
+        cursor: pointer;
+        color: white;
+        background-color: #21ce99;
+      }
+
+      .file-upload {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .upload-total {
+        color: white;
+        display: inline;
+        padding-left: 5px;
+      }
+
+      .upload-submit {
+        background-color: $accent;
+        color: white;
+        float: right;
+      }
+    }
+  }
+}
+
+.center {
+  text-align: center;
+  margin-top: -1px;
+}
+
+button {
+  &:active, &:focus {
+    box-shadow: none !important;
+    outline: none !important;
   }
 }
