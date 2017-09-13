@@ -15,22 +15,31 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="navbar-header">
-                            <h3>SHADEX</h3>
+                            <h3>Music.z</h3>
                         </div>
                     </div>
                     <div class="col-md-4 center">
-                        <button class="btn prev-btn" id="prev-btn">
-                            <span class="fa fa-step-backward" aria-hidden="true"></span>
-                        </button>
-                        <button class="btn play-btn" id="play-btn">
-                            <span class="fa fa-play" aria-hidden="true"></span>
-                        </button>
-                        <button class="btn pause-btn" id="pause-btn" style="display: none">
-                            <span class="fa fa-pause" aria-hidden="true"></span>
-                        </button>
-                        <button class="btn next-btn" id="next-btn">
-                            <span class="fa fa-step-forward" aria-hidden="true"></span>
-                        </button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn prev-btn" id="prev-btn">
+                                    <span class="fa fa-step-backward" aria-hidden="true"></span>
+                                </button>
+                                <button class="btn play-btn" id="play-btn">
+                                    <span class="fa fa-play" aria-hidden="true"></span>
+                                </button>
+                                <button class="btn pause-btn" id="pause-btn" style="display: none">
+                                    <span class="fa fa-pause" aria-hidden="true"></span>
+                                </button>
+                                <button class="btn next-btn" id="next-btn">
+                                    <span class="fa fa-step-forward" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <progress id="progress-bar" value="80" max="100"></progress>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <button class="btn upload-btn" data-toggle="modal" data-target="#upload-song-modal">

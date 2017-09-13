@@ -29,7 +29,7 @@
                                     <p class="date-added">{{ $song->created_at->toFormattedDateString() }}</p>
                                 </div>
                             </div>
-                            <audio id="{{ $song->id }}" src="{{str_replace(' ', '_', '/music/' . $song->filename) }}"></audio>
+                            <audio id="{{ $song->id }}" src="{{str_replace(' ', '_', '/music/' . $song->filename) }}" ontimeupdate="updateProgress()"></audio>
                         </div>
                     </li>
                 @empty
@@ -63,6 +63,9 @@
                     setPauseBtn();
 
                     played_stack = [];
+
+                } else {
+                    play(1);
                 }
             });
 
@@ -121,6 +124,11 @@
         {
             $('#play-btn').css("display", "inline-block");
             $('#pause-btn').css("display", "none");
+        }
+
+        function updateProgress()
+        {
+
         }
     </script>
 @endsection
