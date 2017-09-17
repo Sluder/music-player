@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Song;
 use Illuminate\Http\Request;
-use League\Flysystem\Exception;
 use wapmorgan\Mp3Info\Mp3Info;
 
 class MusicController extends Controller
@@ -14,16 +13,18 @@ class MusicController extends Controller
     {
         if ($request->has('songs')) {
             foreach ($request->file('songs') as $song) {
-                $filename = time() . '_' . str_replace(' ', '_', $song->getClientOriginalName());
-                $song->move(public_path('music/'), $filename);
+                if (!Song::where('name', explode('.', $song->getClientOriginalName())[0])->exists()) {
+                    $filename = time() . '_' . str_replace(' ', '_', $song->getClientOriginalName());
+                    $song->move(public_path('music/'), $filename);
 
-                $audio_info = new Mp3Info(public_path('music/') . $filename, true);
+                    $audio_info = new Mp3Info(public_path('music/') . $filename, true);
 
-                Song::create([
-                    'name' => explode('.', $song->getClientOriginalName())[0],
-                    'filename' => $filename,
-                    'length' => floor($audio_info->duration / 60) . ':' . floor($audio_info->duration % 60)
-                ]);
+                    Song::create([
+                        'name' => explode('.', $song->getClientOriginalName())[0],
+                        'filename' => $filename,
+                        'length' => floor($audio_info->duration / 60) . ':' . floor($audio_info->duration % 60)
+                    ]);
+                }
             }
 
             return redirect()->route('index.show');

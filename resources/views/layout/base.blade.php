@@ -35,15 +35,10 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <progress id="progress-bar" value="80" max="100"></progress>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-md-4">
                         <button class="btn upload-btn" data-toggle="modal" data-target="#upload-song-modal">
-                            <span class="fa fa-upload" aria-hidden="true"></span>
+                            <span class="fa fa-plus-circle" aria-hidden="true"></span>
                         </button>
                     </div>
                 </div>
