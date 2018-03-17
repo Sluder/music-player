@@ -15,6 +15,28 @@ html, body {
   background-color: $dark-grey;
 }
 
+.grey {
+  color: $light-grey;
+  font-weight: normal;
+}
+
+input {
+  background-color: #3a3939 !important;
+  border-color: #3a3939 !important;
+  box-shadow: none !important;
+  color: white !important;
+}
+
+button {
+  color: white;
+  background-color: $accent;
+
+  &:active, &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
 .navbar-fixed-top {
   background-color: $accent;
   height: 55px;
@@ -29,47 +51,30 @@ html, body {
   .play-btn, .pause-btn {
     border: 4px solid white;
     border-radius: 30px;
-    padding-left: 13px;
-    padding-right: 11px;
     background: none;
     color: white;
     font-size: 20px;
-
-    &:hover {
-      font-size: 21px;
-      padding-left: 14px;
-      padding-right: 12px;
-    }
+    padding-left: 13px;
+    padding-right: 11px;
   }
 
   .pause-btn {
     padding-left: 12px;
-
-    &:hover {
-      font-size: 21px;
-      padding-left: 13px;
-      padding-right: 12px;
-    }
   }
 
   .next-btn, .prev-btn {
     background: none;
     color: white;
     font-size: 30px;
-
-    &:hover {
-      font-size: 31px;
-      margin-top: -1px;
-    }
   }
 
   .upload-btn {
     background: none;
     color: white;
     font-size: 25px;
-    margin-top: 3px;
     float: right;
     padding-right: 0;
+    margin-top: 3px;
   }
 }
 
@@ -78,7 +83,20 @@ html, body {
   margin-bottom: 40px;
 }
 
+.converter {
+  button {
+    float: right;
+    margin-top: 25px;
+
+    &:hover {
+      color: $dark-grey !important;
+    }
+  }
+}
+
 .music-list {
+  margin-top: 35px;
+
   ul {
     padding: 0;
 
@@ -98,17 +116,14 @@ html, body {
   }
 
   .song-title {
-    color: $light-grey;
     padding-left: 26px;
   }
 
   .song-length {
-    color: $light-grey;
     margin-left: -6px;
   }
 
   .song-date {
-    color: $light-grey;
     float: right;
     padding-right: 37px;
   }
@@ -178,11 +193,4 @@ html, body {
 .center {
   text-align: center;
   margin-top: -1px;
-}
-
-button {
-  &:active, &:focus {
-    box-shadow: none !important;
-    outline: none !important;
-  }
 }
