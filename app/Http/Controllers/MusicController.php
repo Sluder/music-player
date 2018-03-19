@@ -38,16 +38,20 @@ class MusicController extends Controller
      */
     public function convert()
     {
-        $curl = curl_init();
+        $filename = str_replace(' ', '_', request('song_name'));
 
-        curl_setopt($curl, CURLOPT_URL, 'https://savedeo.p.mashape.com/download');
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [
-            'X-Mashape-Key: 2j5ILBSm54mshmu5faroGNBKsEG2p1FG0YCjsnrUWXUIfL6NAH',
-            'Content-Type: application/x-www-form-urlencoded',
-            'Accept: application/json',
+        shell_exec("youtube-dl -x -o ./music/\"" . $filename . ".%(ext)s\" --audio-format mp3 " . request('youtube_url'));
+
+        $getID3 = new \getID3();
+        $duration = $getID3->analyze(public_path('music/') . $filename . ".mp3")['playtime_string'];
+
+        Song::create([
+            'name' => request('song_name'),
+            'filename' => $filename . ".mp3",
+            'length' => $duration
         ]);
 
-        dd(json_decode(curl_exec($curl))->result);
+        return redirect()->route('show.index');
     }
 
 }

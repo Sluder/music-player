@@ -7,10 +7,16 @@
             <div class="converter">
                 <form action="{{ route('convert') }}" method="POST">
                     {{ csrf_field() }}
-                    <div class="col-md-11">
+                    <div class="col-md-7">
                         <div class="form-group">
-                            <label for="youtube_url" class="grey">Youtube to MP3</label>
-                            {{ Form::text('youtube_url', null, ['class' => 'form-control']) }}
+                            <label for="youtube_url" class="grey">Youtube URL</label>
+                            {{ Form::text('youtube_url', null, ['class' => 'form-control', 'autofocus']) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="song_name" class="grey">Song Name</label>
+                            {{ Form::text('song_name', null, ['class' => 'form-control']) }}
                         </div>
                     </div>
                     <div class="col-md-1">
@@ -84,19 +90,25 @@
             });
 
             $('#play-btn').click(function() {
+                playing = true;
+
                 if (current_song !== null) {
                     current_song.play();
-
                     played_stack = [];
                 } else {
-                    play({{ $songs->first()->id }});
+                    play({{ isset($songs->first()->id) ? $songs->first()->id : -1 }});
                 }
 
-                setBtn();
+                if ({!! json_encode(isset($songs->first()->id)) !!}) {
+                    setBtn();
+                }
             });
 
             $('#pause-btn').click(function() {
+                playing = false;
+
                 current_song.pause();
+
                 setBtn();
             });
 
@@ -120,6 +132,9 @@
          */
         function play(audio_id)
         {
+            if (audio_id === -1) {
+                return;
+            }
             playing = true;
 
             played_stack.push(audio_id);
@@ -151,8 +166,6 @@
                 $('#play-btn').css("display", "inline-block");
                 $('#pause-btn').css("display", "none");
             }
-
-            playing = !playing;
         }
     </script>
 @endsection
