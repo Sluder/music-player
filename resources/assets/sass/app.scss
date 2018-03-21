@@ -47,6 +47,12 @@ button {
   height: 55px;
 
   .navbar-header {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
     h3 {
       margin-top: 16px;
       color: white;
