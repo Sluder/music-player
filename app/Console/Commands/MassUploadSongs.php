@@ -49,7 +49,12 @@ class MassUploadSongs extends Command
                 copy($filename, public_path('music/') . $new_file);
 
                 $getID3 = new \getID3();
-                $duration = $getID3->analyze(public_path('music/') . $new_file)['playtime_string'];
+
+                try {
+                    $duration = $getID3->analyze(public_path('music/') . $new_file)['playtime_string'];
+                } catch (\Exception $e) {
+                    $duration = "0:00";
+                }
 
                 Song::updateOrCreate(['filename' => $new_file], [
                     'name' =>  explode('.', $new_file)[0],
