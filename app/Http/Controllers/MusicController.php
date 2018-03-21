@@ -21,7 +21,7 @@ class MusicController extends Controller
                     $getID3 = new \getID3();
                     $duration = $getID3->analyze(public_path('music/') . $filename)['playtime_string'];
 
-                    Song::create([
+                    Song::updateOrCreate(['name'], [
                         'name' => explode('.', $song->getClientOriginalName())[0],
                         'filename' => $filename,
                         'length' => $duration
