@@ -194,3 +194,13 @@ button {
   text-align: center;
   margin-top: -1px;
 }
+
+@media screen and (max-width: 1366px) {
+  .container {
+    width: 96%;
+  }
+
+  .song-item {
+    padding: 10px 17px 10px !important;
+  }
+}

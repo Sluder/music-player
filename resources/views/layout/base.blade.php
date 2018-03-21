@@ -3,6 +3,7 @@
 
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Music Player</title>
 
@@ -13,7 +14,7 @@
         <nav class="navbar navbar-fixed-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden-xs">
                         <div class="navbar-header">
                             <h3>Music.z</h3>
                         </div>
@@ -36,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 hidden-sm">
+                    <div class="col-md-4 hidden-xs">
                         <button class="btn upload-btn" data-toggle="modal" data-target="#upload-song-modal">
                             <span class="fa fa-plus-circle" aria-hidden="true"></span>
                         </button>
