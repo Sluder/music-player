@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         {{-- Youtube to MP3 conversion --}}
-        <div class="row">
+        <div class="row hidden-sm">
             <div class="converter">
                 <form action="{{ route('convert') }}" method="POST">
                     {{ csrf_field() }}
@@ -31,13 +31,13 @@
             <div class="col-md-12">
                 <div class="music-list">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-8 col-sm-10">
                             <p class="song-title grey">Song Name</p>
                         </div>
                         <div class="col-md-2">
                             <p class="song-length grey">Length</p>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 hidden-sm">
                             <p class="song-date grey">Date Added</p>
                         </div>
                     </div>
@@ -46,17 +46,17 @@
                             <li class="list-group-item">
                                 <div class="song-item" id="{{ 'row-' . $song->id }}" style="background-color: {{ $key % 2 == 0 ? "#3a3939" : "#2f2f2f" }}" onclick="play({{ '\'' . $song->id . '\'' }})">
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 col-sm-10">
                                             <p class="title">{{ $song->name }}</p>
                                         </div>
                                         <div class="col-md-2">
                                             <p class="length">{{ ltrim(date('h:i', strtotime($song->length)), '0') }}</p>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-2 hidden-sm">
                                             <p class="date-added">{{ $song->created_at->toFormattedDateString() }}</p>
                                         </div>
                                     </div>
-                                    <audio id="{{ $song->id }}" src="{{str_replace(' ', '_', '/music/' . $song->filename) }}"></audio>
+                                    <audio id="{{ $song->id }}" src="{{str_replace(' ', '_', '/music/' . $song->filename) }}" onended="next()"></audio>
                                 </div>
                             </li>
                         @empty
@@ -121,11 +121,19 @@
             });
 
             $('#next-btn').click(function() {
-                if (current_song !== null) {
-                    play(songs[Math.floor(Math.random() * songs.length)]['id']);
-                }
+                next();
             });
         });
+
+        /**
+         * Play next song
+         */
+        function next()
+        {
+            if (current_song !== null) {
+                play(songs[Math.floor(Math.random() * songs.length)]['id']);
+            }
+        }
 
         /**
          * Play selected song
@@ -145,6 +153,7 @@
 
             $('#row-' + song_id).removeClass("playing");
             $('#row-' + audio_id).addClass("playing");
+
             song_id = audio_id;
 
             current_song = document.getElementById(audio_id);

@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden-sm">
                         <button class="btn upload-btn" data-toggle="modal" data-target="#upload-song-modal">
                             <span class="fa fa-plus-circle" aria-hidden="true"></span>
                         </button>
