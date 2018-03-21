@@ -41,17 +41,17 @@ class MassUploadSongs extends Command
      */
     public function handle()
     {
-        $dir = new RecursiveDirectoryIterator('./public/music/temp');
+        $dir = new RecursiveDirectoryIterator('./public/music/');
 
         foreach (new RecursiveIteratorIterator($dir) as $filename => $file) {
             if (ends_with($filename, "mp3")) {
                 $new_file = str_replace(' ', '_', $file->getBasename());
-                copy($filename, public_path('music/') . $new_file);
+                copy($filename, public_path('music/test/') . $new_file);
 
                 $getID3 = new \getID3();
                 $duration = $getID3->analyze(public_path('music/') . $new_file)['playtime_string'];
 
-                Song::create([
+                Song::updateOrCreate(['name'], [
                     'name' =>  explode('.', $new_file)[0],
                     'filename' => $new_file,
                     'length' => $duration
