@@ -196,11 +196,17 @@ button {
 }
 
 @media (max-width: 360px) {
-  .container {
-    width: 100%;
-  }
+  .content {
+    margin-top: 40px !important;
 
-  .song-item {
-    padding: 10px 17px 10px !important;
+    .container {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      width: 100%;
+    }
+
+    .song-item {
+      padding: 10px 17px 10px !important;
+    }
   }
 }
