@@ -77,7 +77,6 @@
     @parent
 
     <script type="text/javascript">
-        console.log($(window).width());
         var songs = {!! json_encode($songs->toArray()) !!};
         var played_stack = [];
         var current_song = null;
