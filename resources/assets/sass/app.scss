@@ -195,9 +195,9 @@ button {
   margin-top: -1px;
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-device-width : 640px) {
   .container {
-    width: 96%;
+    width: 100%;
   }
 
   .song-item {
