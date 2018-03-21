@@ -9,7 +9,7 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="upload" class="btn">Choose</label>
+                            <label for="upload" class="btn upload">Choose</label>
                             <p class="upload-total">No songs selected</p>
                             <input name="songs[]" id="upload" class="file-upload" type="file" multiple required>
                         </div>

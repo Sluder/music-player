@@ -37,6 +37,11 @@ button {
   }
 }
 
+.fa-btn {
+  background: none;
+  border: none;
+}
+
 .navbar-fixed-top {
   background-color: $accent;
   height: 55px;
@@ -84,6 +89,8 @@ button {
 }
 
 .converter {
+  margin-bottom: 95px;
+
   button {
     float: right;
     margin-top: 25px;
@@ -95,8 +102,6 @@ button {
 }
 
 .music-list {
-  margin-top: 35px;
-
   ul {
     padding: 0;
 
@@ -148,9 +153,17 @@ button {
   .playing {
     background-color: $accent !important;
   }
+  
+  .btns {
+    button {
+      font-size: 17px;
+      float: right;
+      margin-left: 15px;
+    }
+  }
 }
 
-.upload-song-modal {
+.upload-song-modal, .delete-song-modal, .update-song-modal  {
   .modal-content {
     padding: 15px;
     background-color: #3a3939;
@@ -163,7 +176,14 @@ button {
     form {
       margin-top: 15px;
 
-      label {
+      input {
+        background-color: $dark-grey !important;
+        border-color: $dark-grey !important;
+        box-shadow: none !important;
+        color: white !important;
+      }
+
+      .upload {
         cursor: pointer;
         color: white;
         background-color: #21ce99;
@@ -185,6 +205,15 @@ button {
         background-color: $accent;
         color: white;
         float: right;
+      }
+
+      .cancel {
+        background: none;
+        float: right;
+
+        &:hover {
+          color: $light-grey;
+        }
       }
     }
   }

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Music Player</title>
+        <title>Music.z</title>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
@@ -16,7 +16,9 @@
                 <div class="row">
                     <div class="col-md-4 hidden-xs">
                         <div class="navbar-header">
-                            <h3>Music.z</h3>
+                            <a href="{{ route('google.login') }}">
+                                <h3>Music.z</h3>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4 center">
@@ -37,11 +39,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 hidden-xs">
-                        <button class="btn upload-btn" data-toggle="modal" data-target="#upload-song-modal">
-                            <span class="fa fa-plus-circle" aria-hidden="true"></span>
-                        </button>
-                    </div>
+                    @if (Auth::check())
+                        <div class="col-md-4 hidden-xs">
+                            <button class="btn upload-btn" data-toggle="modal" data-target="#upload-song-modal">
+                                <span class="fa fa-plus-circle" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </nav>
@@ -50,7 +54,9 @@
             @yield('content')
         </div>
 
-        @include('components.upload-song-modal')
+        @if (Auth::check())
+            @include('components.upload-song-modal')
+        @endif
 
         {{-- Scripts --}}
         <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>

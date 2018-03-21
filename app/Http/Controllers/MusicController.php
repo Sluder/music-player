@@ -54,4 +54,28 @@ class MusicController extends Controller
         return redirect()->route('show.index');
     }
 
+    /**
+     * Delete song from playlist
+     */
+    public function delete(Song $song)
+    {
+        $song->delete();
+
+        unlink(public_path('music/') . $song->filename);
+
+        return redirect()->route('show.index');
+    }
+
+    /**
+     * Update song from playlist
+     */
+    public function update(Song $song)
+    {
+        $song->update([
+            'name' => request('song_name')
+        ]);
+
+        return redirect()->route('show.index');
+    }
+
 }
