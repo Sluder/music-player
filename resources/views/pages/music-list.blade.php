@@ -42,11 +42,6 @@
                         <div class="col-md-2">
                             <p class="song-date grey">Date Added</p>
                         </div>
-                        @if (Auth::check())
-                            <div class="col-md-2">
-
-                            </div>
-                        @endif
                     </div>
                     <ul class="list-group">
                         @forelse ($songs as $key => $song)

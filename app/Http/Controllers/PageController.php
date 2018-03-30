@@ -11,7 +11,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $songs = Song::orderBy('name')->get();
+        $songs = Song::orderBy('created_at', 'desc')->get();
 
         return view('pages.music-list', compact('songs'));
     }
